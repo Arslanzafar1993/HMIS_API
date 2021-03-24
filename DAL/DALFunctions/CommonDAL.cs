@@ -1,0 +1,181 @@
+﻿using DAL.Data.Database.HMISDBContext;
+using Models.Common;
+using Models.HealthFacility;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using static Models.Common.CommonModels;
+
+namespace DAL
+{
+    public class CommonDAL
+    {
+        #region GetDropdowns
+        public List<DDLModel> GetProvince()
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+
+                    return null;// db.TblLocation.Where(x => x.Type == "Province").OrderBy(x => x.Name).Select(x => new DDLModel { Id = x.Id, Code = x.Code, Name = x.Name }).ToList();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<DDLModel> GetDivision(string provinceCode)
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return db.HealthFacilityDetails.OrderBy(x => x.DivisionName).Select(x => new DDLModel { Id = x.Id, Code = x.DivisionCode, Name = x.DivisionName }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<DDLModel> GetDistrict(string divisionCode)
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+
+                    return db.HealthFacilityDetails.Where(a=>a.DivisionCode == divisionCode).OrderBy(x => x.DistrictName).Select(x => new DDLModel { Id = x.Id, Code = x.DistrictCode, Name = x.DistrictName }).ToList();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public List<DDLModel> GetTehsil(string districtCode)
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    var abc = db.HealthFacilityDetails.Where(a => a.DistrictCode == districtCode).OrderBy(x => x.TehsilName).Select(x => new DDLModel { Id = x.Id, Code = x.TehsilCode, Name = x.TehsilName }).ToList();
+                    return abc;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<DDLModel> GetHealthfacilities(string tehsilCode = "",string HealthFacilityCode = "")
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return db.HealthFacilityDetails.Where(a=>a.TehsilCode == (string.IsNullOrEmpty(tehsilCode) ? a.TehsilCode : tehsilCode) && a.Id.ToString() == (string.IsNullOrEmpty(HealthFacilityCode) ? a.Id.ToString() : HealthFacilityCode)).Select(x => new DDLModel { Id = x.Id, Code = x.HFMISCode, Name = x.FullName }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public HealthFacilityListModel GetHealthFacilitiesData(string HealthFacilityCode = "")
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return db.HealthFacilityDetails.Where(a => a.Id.ToString() == HealthFacilityCode).Select(x => new HealthFacilityListModel
+                    {
+                        id = x.Id,
+                        divisionCode = x.DivisionCode,
+                        districtCode = x.DistrictCode,
+                        tehsilCode = x.TehsilCode
+                    }).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<DDLModel> GetAllRoles()
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return null;// db.AspNetRoles.Select(x => new DDLRolesModel { Id = x.Id, Name = x.Name }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+        public List<DDLModel> GetOccupationList ()
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return db.Occupations.Select(x => new DDLModel { Id = x.Id, Name = x.Name }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public List<DDLModel> GetQualificationList()
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return db.Occupations.Select(x => new DDLModel { Id = x.Id, Name = x.Name }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<DDLModel> GetMaritalStatusList()
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return db.HealthFacilityDetails.Select(x => new DDLModel { Id = x.Id, Name = x.Name }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        #endregion
+    }
+}
