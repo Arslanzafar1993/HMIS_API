@@ -99,7 +99,7 @@ namespace DAL
             {
                 using (var db = new HMISDBContext())
                 {
-                    return db.HealthFacilityDetails.Where(a => a.Id.ToString() == HealthFacilityCode).Select(x => new HealthFacilityListModel
+                    return db.HealthFacilityDetails.Where(a => a.HFMISCode == HealthFacilityCode).Select(x => new HealthFacilityListModel
                     {
                         id = x.Id,
                         divisionCode = x.DivisionCode,
@@ -147,13 +147,13 @@ namespace DAL
             }
         }
 
-        public List<DDLModel> GetQualificationList()
+        public List<DDLModel> GetDesignationList()
         {
             try
             {
                 using (var db = new HMISDBContext())
                 {
-                    return db.Occupations.Select(x => new DDLModel { Id = x.Id, Name = x.Name }).ToList();
+                    return db.Designations.Select(x => new DDLModel { Id = x.Id, Name = x.Name }).ToList();
                 }
             }
             catch (Exception ex)

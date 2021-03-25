@@ -72,7 +72,7 @@ namespace HMIS_API.Controllers
                     tehsil = HealthFacility!=null ? HealthFacility.tehsilCode : "",
                     division = HealthFacility != null ? HealthFacility.divisionCode: "",
                     district = HealthFacility != null ? HealthFacility.districtCode : "",
-                    HealthFacilityCode = HealthFacility!=null ? HealthFacility.id.ToString() : ""
+                    HealthFacilityCode = user.HealthFacilityCode
                 };
                 return Ok(Register);
             }

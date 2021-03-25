@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Models.Common;
+using DAL.Data.Database.Tables;
 using Models.HealthFacility;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,17 @@ namespace HMIS_API.Models.Common
         {
             public HealthFaciityProfile()
             {
-                //CreateMap<HealthFacilityModel, tbl_health_facility>()
-                //    .ForMember(destination => destination.id,
-                //    options => options.MapFrom(source => source.ID))
-                //    .ForMember(destination => destination.division_code,
-                //    options => options.MapFrom(source => source.DivisionCode))
-                //    .ForMember(destination => destination.district_code,
-                //    options => options.MapFrom(source => source.DistrictCode))
-                //    .ForMember(destination => destination.tehsil_code,
-                //    options => options.MapFrom(source => source.TehsilCode))
-                //   .ForMember(destination => destination.hf_name,
-                //    options => options.MapFrom(source => source.HospitalName));
+                CreateMap<HealthFacilityModel, HealthFacilityDetail>()
+                    .ForMember(destination => destination.Id,
+                    options => options.MapFrom(source => source.id))
+                    .ForMember(destination => destination.DivisionCode,
+                    options => options.MapFrom(source => source.DivisionCode))
+                    .ForMember(destination => destination.DistrictCode,
+                    options => options.MapFrom(source => source.DistrictCode))
+                    .ForMember(destination => destination.TehsilCode,
+                    options => options.MapFrom(source => source.TehsilCode))
+                   .ForMember(destination => destination.FullName,
+                    options => options.MapFrom(source => source.HospitalName));
 
             }
         }

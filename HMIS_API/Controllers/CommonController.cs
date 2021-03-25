@@ -94,14 +94,14 @@ namespace HMIS_API.Controllers
             }
         }
         #endregion
-        #region GetQualificationList
+        #region GetDesignationList
         [HttpGet]
-        [Route("GetQualificationList")]
-        public IActionResult GetQualificationList()
+        [Route("GetDesignationList")]
+        public IActionResult GetDesignationList()
         {
             try
             {
-                return Ok(CommonUtility.GetResponse<List<DDLModel>>(_commonServices.GetQualificationList()));
+                return Ok(CommonUtility.GetResponse<List<DDLModel>>(_commonServices.GetDesignationList()));
             }
             catch (Exception ex)
             {

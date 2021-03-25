@@ -7,6 +7,7 @@ namespace Models.HealthFacility
     public class HealthFacilityListModel
     {
         public int id { get; set; }
+        public string HFMISCode { get; set; }
         public string divisionCode { get; set; }
         public string DivisionName { get; set; }
         public string districtCode { get; set; }
@@ -14,8 +15,6 @@ namespace Models.HealthFacility
         public string tehsilCode { get; set; }
         public string TehsilName { get; set; }
         public string HospitalName { get; set; }
-        public string category { get; set; }
-        public string Identifier { get; set; }
 
     }
 }

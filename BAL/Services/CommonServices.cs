@@ -101,11 +101,11 @@ namespace BAL.Services
                 throw ex;
             }
         }
-        public List<DDLModel> GetQualificationList()
+        public List<DDLModel> GetDesignationList()
         {
             try
             {
-                return new List<DDLModel>(_commonDAL.GetQualificationList());
+                return new List<DDLModel>(_commonDAL.GetDesignationList());
             }
             catch (Exception ex)
             {
