@@ -36,7 +36,7 @@ namespace DAL
             {
                 using (var db = new HMISDBContext())
                 {
-                    return db.HealthFacilityDetails.OrderBy(x => x.DivisionName).Select(x => new DDLModel { Id = x.Id, Code = x.DivisionCode, Name = x.DivisionName }).ToList();
+                    return db.HealthFacilityDetails.OrderBy(x => x.DivisionName).Select(x => new DDLModel { Code = x.DivisionCode, Name = x.DivisionName }).Distinct().ToList();
                 }
             }
             catch (Exception ex)
@@ -52,7 +52,7 @@ namespace DAL
                 using (var db = new HMISDBContext())
                 {
 
-                    return db.HealthFacilityDetails.Where(a=>a.DivisionCode == divisionCode).OrderBy(x => x.DistrictName).Select(x => new DDLModel { Id = x.Id, Code = x.DistrictCode, Name = x.DistrictName }).ToList();
+                    return db.HealthFacilityDetails.Where(a=>a.DivisionCode == divisionCode).OrderBy(x => x.DistrictName).Select(x => new DDLModel {  Code = x.DistrictCode, Name = x.DistrictName }).Distinct().ToList();
 
                 }
             }
@@ -68,7 +68,7 @@ namespace DAL
             {
                 using (var db = new HMISDBContext())
                 {
-                    var abc = db.HealthFacilityDetails.Where(a => a.DistrictCode == districtCode).OrderBy(x => x.TehsilName).Select(x => new DDLModel { Id = x.Id, Code = x.TehsilCode, Name = x.TehsilName }).ToList();
+                    var abc = db.HealthFacilityDetails.Where(a => a.DistrictCode == districtCode).OrderBy(x => x.TehsilName).Select(x => new DDLModel {  Code = x.TehsilCode, Name = x.TehsilName }).Distinct().ToList();
                     return abc;
                 }
             }
@@ -84,7 +84,7 @@ namespace DAL
             {
                 using (var db = new HMISDBContext())
                 {
-                    return db.HealthFacilityDetails.Where(a=>a.TehsilCode == (string.IsNullOrEmpty(tehsilCode) ? a.TehsilCode : tehsilCode) && a.Id.ToString() == (string.IsNullOrEmpty(HealthFacilityCode) ? a.Id.ToString() : HealthFacilityCode)).Select(x => new DDLModel { Id = x.Id, Code = x.HFMISCode, Name = x.FullName }).ToList();
+                    return db.HealthFacilityDetails.Where(a=>a.TehsilCode == (string.IsNullOrEmpty(tehsilCode) ? a.TehsilCode : tehsilCode) && a.Id.ToString() == (string.IsNullOrEmpty(HealthFacilityCode) ? a.Id.ToString() : HealthFacilityCode)).Select(x => new DDLModel { Code = x.HFMISCode, Name = x.FullName }).Distinct().ToList();
                 }
             }
             catch (Exception ex)
