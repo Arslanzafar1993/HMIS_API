@@ -68,5 +68,9 @@ namespace HMIS_API.Models.Common
             }
             return msg;
         }
+        public static DateTime GetCurrentDate()
+        {
+            return DateTime.Now;
+        }
     }
 }

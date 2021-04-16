@@ -73,6 +73,7 @@ namespace Models.Common
         public string VisitType { get; set; }
         public bool isLab { get; set; }
         public string UserId { get; set; }
+        public string CNIC { get; set; }
     }
     public class PaginationResult<T> where T : class
     {

@@ -177,5 +177,27 @@ namespace DAL
             }
         }
         #endregion
+        public String GetLastMRNO()
+        {
+            String LastMRNO = "";
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                   var Data = db.PatientRegistrations.Where(a => a.CreatedOn.Date == DateTime.Now.Date).OrderByDescending(a => a.ID).FirstOrDefault();
+                    if (Data != null)
+                        LastMRNO = Data.MRNO; ;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return LastMRNO;
+        }
+
+        #region CheckMRNO
+
+        #endregion
     }
 }

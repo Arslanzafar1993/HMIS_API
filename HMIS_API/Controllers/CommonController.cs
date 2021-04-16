@@ -124,5 +124,22 @@ namespace HMIS_API.Controllers
             }
         }
         #endregion
+
+
+        #region GetGenderList
+        [HttpGet]
+        [Route("GetGenderList")]
+        public IActionResult GetGenderList()
+        {
+            try
+            {
+                return Ok(CommonUtility.GetResponse<List<DDLModel>>(_commonServices.GetMaritalStatusList()));
+            }
+            catch (Exception ex)
+            {
+                return Ok(CommonUtility.GetExResponse<Exception>(ex));
+            }
+        }
+        #endregion
     }
 }
