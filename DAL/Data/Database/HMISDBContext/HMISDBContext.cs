@@ -37,7 +37,7 @@ namespace DAL.Data.Database.HMISDBContext
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Initial Catalog=HM;user id=arslan;password=Hisdulahore_123456;Data Source=172.16.15.5");
+                optionsBuilder.UseSqlServer("Initial Catalog=HM;user id=arslan;password=abcd@1234;Data Source=172.16.15.5");
             }
         }
 
