@@ -26,7 +26,6 @@ namespace DAL
         {
             using (var db = new HMISDBContext())
             {
-                var trans = db.Database.BeginTransaction();
                 try
                 {
                     if (model != null && !string.IsNullOrEmpty(model.HFMISCode))
@@ -45,12 +44,10 @@ namespace DAL
                         db.HealthFacilityDetails.AddAsync(NewHF);
                     }
                     db.SaveChanges();
-                    trans.Commit();
                     return 1;
                 }
                 catch(Exception ex) 
                 {
-                    trans.Rollback();
                     return -1;
                 }
             }

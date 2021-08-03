@@ -30,7 +30,6 @@ namespace DAL.DALFunctions
             int Result = 0;
             using (var db = new HMISDBContext())
             {
-                var trans = db.Database.BeginTransaction();
                 try
                 {
                     if (model != null && !string.IsNullOrEmpty(model.CNIC))
@@ -54,12 +53,10 @@ namespace DAL.DALFunctions
                     }
 
                     db.SaveChanges();
-                    trans.Commit();
                     Result = 1;
                 }
                 catch (Exception ex)
                 {
-                    trans.Rollback();
                     Result = -1;
                 }
                 return Result;

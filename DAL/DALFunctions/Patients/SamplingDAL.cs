@@ -25,19 +25,16 @@ namespace DAL.DALFunctions.Patients
             int Result = 0;
             using (var db = new HMISDBContext())
             {
-                var trans = db.Database.BeginTransaction();
                 try
                 {
                     var CurrentDate = DateTime.Now;
                     var PatientSample = this._mapper.Map<tbl_sample>(model);
                     db.tbl_samples.AddAsync(PatientSample);
                     db.SaveChanges();
-                    trans.Commit();
                     Result = 1;
                 }
                 catch (Exception ex)
                 {
-                    trans.Rollback();
                     Result = -1;
                 }
                 return Result;
