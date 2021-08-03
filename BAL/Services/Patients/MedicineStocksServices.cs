@@ -11,20 +11,20 @@ namespace BAL.Services
    public class MedicineStocksServices
     {
         #region Class Level Fields and Objects
-        private MedicineStocksDAL _PatientVitalsDAL;
+        private MedicineStocksDAL _DAL;
         private readonly IMapper _mapper;
         #endregion
         #region Constructor
         public MedicineStocksServices(IMapper mapper)
         {
-            _PatientVitalsDAL = new MedicineStocksDAL(mapper);
+            _DAL = new MedicineStocksDAL(mapper);
             _mapper = mapper;
         }
         #endregion
-        #region Add Patient
+        #region AddMedicineStock
         public int AddMedicienStock(MedicineStocksDTO model)
         {
-            return _PatientVitalsDAL.AddMedicienStock(model);
+            return _DAL.AddMedicienStock(model);
         }
         #endregion
     }

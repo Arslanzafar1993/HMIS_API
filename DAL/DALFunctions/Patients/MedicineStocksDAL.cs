@@ -19,7 +19,7 @@ namespace DAL.DALFunctions.Patients
             _mapper = imapper;
         }
         #endregion
-        #region SavePatientVitals
+        #region AddMedicineStock
         public int AddMedicienStock(MedicineStocksDTO model)
         {
             int Result = 0;

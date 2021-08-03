@@ -24,7 +24,6 @@ namespace HMIS_API.Controllers.Patients
         {
             _patientservices = new VaccinationsServices(mapper);
         }
-
         #endregion
         #region AddVaccination
         [HttpPost]

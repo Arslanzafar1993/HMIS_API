@@ -19,7 +19,7 @@ namespace DAL.DALFunctions.Patients
             _mapper = imapper;
         }
         #endregion
-        #region SavePatientVitals
+        #region SavePatientFollowup
         public int AddFollowUp(PatientFollowupsDTO model)
         {
             int Result = 0;

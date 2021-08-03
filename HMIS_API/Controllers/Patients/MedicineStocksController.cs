@@ -28,7 +28,7 @@ namespace HMIS_API.Controllers.Patients
         #endregion
         #region AddMedicineStock
         [HttpPost]
-        [Route("AddVitals")]
+        [Route("AddMedicineStock")]
         public IActionResult AddMedicineStock([FromBody] MedicineStocksDTO model)
         {
             try

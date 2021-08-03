@@ -19,7 +19,7 @@ namespace DAL.DALFunctions.Patients
             _mapper = imapper;
         }
         #endregion
-        #region SavePatientVitals
+        #region SaveAssessement
         public int AddAssessment(PatientAssessmentDTO model)
         {
             int Result = 0;

@@ -19,7 +19,7 @@ namespace DAL.DALFunctions.Patients
             _mapper = imapper;
         }
         #endregion
-        #region SavePatientVitals
+        #region AddSample
         public int AddSample(PatientSamplingDTO model)
         {
             int Result = 0;

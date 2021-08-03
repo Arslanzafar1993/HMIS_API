@@ -28,7 +28,7 @@ namespace HMIS_API.Controllers.Patients
         #endregion
         #region AddPatientFollowup
         [HttpPost]
-        [Route("AddVitals")]
+        [Route("AddPatientFollowup")]
         public IActionResult AddPatientFollowup([FromBody] PatientFollowupsDTO model)
         {
             try

@@ -11,20 +11,20 @@ namespace BAL.Services
    public class FollowupsServices
     {
         #region Class Level Fields and Objects
-        private FollowupsDAL _PatientVitalsDAL;
+        private FollowupsDAL _DAL;
         private readonly IMapper _mapper;
         #endregion
         #region Constructor
         public FollowupsServices(IMapper mapper)
         {
-            _PatientVitalsDAL = new FollowupsDAL(mapper);
+            _DAL = new FollowupsDAL(mapper);
             _mapper = mapper;
         }
         #endregion
-        #region Add Patient
+        #region AddFollowUp
         public int AddFollowUp(PatientFollowupsDTO model)
         {
-            return _PatientVitalsDAL.AddFollowUp(model);
+            return _DAL.AddFollowUp(model);
         }
         #endregion
     }

@@ -11,20 +11,20 @@ namespace BAL.Services
    public class SamplingServices
     {
         #region Class Level Fields and Objects
-        private SamplingDAL _PatientVitalsDAL;
+        private SamplingDAL _DAL;
         private readonly IMapper _mapper;
         #endregion
         #region Constructor
         public SamplingServices(IMapper mapper)
         {
-            _PatientVitalsDAL = new SamplingDAL(mapper);
+            _DAL = new SamplingDAL(mapper);
             _mapper = mapper;
         }
         #endregion
-        #region Add Patient
+        #region AddSample
         public int AddSample (PatientSamplingDTO model)
         {
-            return _PatientVitalsDAL.AddSample(model);
+            return _DAL.AddSample(model);
         }
         #endregion
     }
