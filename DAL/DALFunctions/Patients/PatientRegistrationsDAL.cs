@@ -35,17 +35,17 @@ namespace DAL.DALFunctions
                 {
                     if (model != null && !string.IsNullOrEmpty(model.CNIC))
                     {
-                        var PatientData = db.PatientRegistrations.Where(a => a.ID == model.id).FirstOrDefault();
+                        var PatientData = db.tbl_PatientRegistrations.Where(a => a.id == model.ID).FirstOrDefault();
                         if (PatientData != null)
                         {
-                            var UpdatedHealthFacility = this._mapper.Map<PatientRegistrationDTO, PatientRegistration>(model, PatientData);
+                            var UpdatedHealthFacility = this._mapper.Map<PatientRegistrationDTO, tbl_PatientRegistration>(model, PatientData);
                             db.Entry(UpdatedHealthFacility).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                         }
                         else
                         {
                             var CurrentDate = DateTime.Now;
-                            var NewPatient = this._mapper.Map<PatientRegistration>(model);
-                            db.PatientRegistrations.AddAsync(NewPatient);
+                            var NewPatient = this._mapper.Map<tbl_PatientRegistration>(model);
+                            db.tbl_PatientRegistrations.AddAsync(NewPatient);
                         }
                     }
                     else

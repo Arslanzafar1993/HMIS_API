@@ -25,8 +25,14 @@ namespace HMIS_API.Models.Common
                 options => options.MapFrom(source => source.TehsilCode))
                 .ForMember(destination => destination.FullName,
                 options => options.MapFrom(source => source.HospitalName));
-            CreateMap<PatientRegistrationDTO, PatientRegistration>();
-            CreateMap<PatientVitalsDTO, PatientVital>();
+            CreateMap<PatientRegistrationDTO, tbl_PatientRegistration>();
+            CreateMap<PatientVitalsDTO, tbl_patient_vital>();
+
+            CreateMap<MedicineStocksDTO, tbl_stock>();
+            CreateMap<PatientAssessmentDTO, tbl_patient_assessment>();
+            CreateMap<PatientFollowupsDTO, tbl_patient_vital>();
+            CreateMap<PatientSamplingDTO, tbl_sample>();
+            CreateMap<PatientVaccinationDTO, tbl_patientvaccination>();
         }
     }
 }

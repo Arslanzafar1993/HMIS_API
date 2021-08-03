@@ -8,19 +8,19 @@ using System.Text;
 
 namespace DAL.DALFunctions.Patients
 {
-  public  class PatientVitalsDAL
+  public  class FollowupsDAL
     {
         #region Class Level Fields and Objects
         private readonly IMapper _mapper;
         #endregion
         #region Constructor
-        public PatientVitalsDAL(IMapper imapper)
+        public FollowupsDAL(IMapper imapper)
         {
             _mapper = imapper;
         }
         #endregion
         #region SavePatientVitals
-        public int AddPatientVitals(PatientVitalsDTO model)
+        public int AddFollowUp(PatientFollowupsDTO model)
         {
             int Result = 0;
             using (var db = new HMISDBContext())

@@ -8,19 +8,19 @@ using System.Text;
 
 namespace DAL.DALFunctions.Patients
 {
-  public  class PatientVitalsDAL
+  public  class AssessmentDAL
     {
         #region Class Level Fields and Objects
         private readonly IMapper _mapper;
         #endregion
         #region Constructor
-        public PatientVitalsDAL(IMapper imapper)
+        public AssessmentDAL(IMapper imapper)
         {
             _mapper = imapper;
         }
         #endregion
         #region SavePatientVitals
-        public int AddPatientVitals(PatientVitalsDTO model)
+        public int AddAssessment(PatientAssessmentDTO model)
         {
             int Result = 0;
             using (var db = new HMISDBContext())
@@ -29,8 +29,8 @@ namespace DAL.DALFunctions.Patients
                 try
                 {
                     var CurrentDate = DateTime.Now;
-                    var PatientVital = this._mapper.Map<tbl_patient_vital>(model);
-                    db.tbl_patient_vitals.AddAsync(PatientVital);
+                    var PatientVital = this._mapper.Map<tbl_patient_assessment>(model);
+                    db.tbl_patient_assessments.AddAsync(PatientVital);
                     db.SaveChanges();
                     trans.Commit();
                     Result = 1;

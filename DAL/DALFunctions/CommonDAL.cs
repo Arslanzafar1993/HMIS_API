@@ -184,9 +184,7 @@ namespace DAL
             {
                 using (var db = new HMISDBContext())
                 {
-                   var Data = db.PatientRegistrations.Where(a => a.CreatedOn.Date == DateTime.Now.Date).OrderByDescending(a => a.ID).FirstOrDefault();
-                    if (Data != null)
-                        LastMRNO = Data.MRNO; ;
+                   var Data = db.tbl_PatientRegistrations.Where(a => a.CreatedOn.Date == DateTime.Now.Date).OrderByDescending(a => a.id).FirstOrDefault();
                 }
             }
             catch (Exception ex)
