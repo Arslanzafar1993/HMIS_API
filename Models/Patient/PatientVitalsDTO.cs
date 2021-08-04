@@ -6,26 +6,20 @@ namespace Models.Patient
 {
     public class PatientVitalsDTO
     {
-        public long PatientRegistrationId { get; set; }
-        public double? Temperature { get; set; }
-        public double? BloodpressureSystolic { get; set; }
-        public double? BloodpressureDiastolic { get; set; }
-        public double? Weight { get; set; }
-        public double? Hip { get; set; }
-        public double? Waist { get; set; }
-        public double? HipWaistStatus { get; set; }
-        public double? HeightInInch { get; set; }
-        public double? BodyMassIndex { get; set; }
-        public string BodyMassIndexStatus { get; set; }
-        public string Mauc { get; set; }
-        public string Abdominal { get; set; }
-        public string Pefr { get; set; }
-        public double? HeadCir { get; set; }
+        public long id { get; set; }
+        public decimal? temperature { get; set; }
+        public decimal? pulse { get; set; }
+        public decimal? bp_systolic { get; set; }
+        public decimal? bp_diastolic { get; set; }
+        public decimal? height { get; set; }
+        public decimal? weight { get; set; }
+        public long? PatientID { get; set; }
+        public int? user_id { get; set; }
+        public int? created { get; set; }
+        public int? updated { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public string UpdatedBy { get; set; }
-        public DateTime? UpdatedOn { get; set; }
-        public string NutritionistStatus { get; set; }
-        public double? BloodSugarReport { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public string UpdateBy { get; set; }
+        public DateTime? UpdateOn { get; set; }
     }
 }

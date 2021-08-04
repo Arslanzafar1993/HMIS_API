@@ -34,6 +34,7 @@ namespace HMIS_API.Controllers.Patients
             try
             {
                 model.CreatedOn = CommonUtility.GetCurrentDate();
+                model.CreatedBy = User.Identity.ToString();
                 int Result = _patientservices.AddVitals(model);
                 return Ok(Result);
             }

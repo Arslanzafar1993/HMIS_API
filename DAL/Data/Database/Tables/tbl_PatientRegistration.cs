@@ -44,6 +44,7 @@ namespace DAL.Data.Database.Tables
         public int? bbl_user_id { get; set; }
         public bool? is_patient_prison { get; set; }
         public bool? is_annual_pcr { get; set; }
+        public string MRNO { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedOn { get; set; }
         public string UpdatedBy { get; set; }

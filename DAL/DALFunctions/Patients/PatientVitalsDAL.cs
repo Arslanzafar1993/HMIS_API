@@ -27,7 +27,7 @@ namespace DAL.DALFunctions.Patients
             {
                 try
                 {
-                    var CurrentDate = DateTime.Now;
+                    model.CreatedOn = DateTime.Now;
                     var PatientVital = this._mapper.Map<tbl_patient_vital>(model);
                     db.tbl_patient_vitals.AddAsync(PatientVital);
                     db.SaveChanges();

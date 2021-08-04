@@ -6,7 +6,7 @@ namespace Models.Patient
 {
     public class PatientRegistrationListDTO
     {
-        public int ID { get; set; }
+        public long Id { get; set; }
         public string PatientName { get; set; }
         public string SWO { get; set; }
         public string CNIC { get; set; }

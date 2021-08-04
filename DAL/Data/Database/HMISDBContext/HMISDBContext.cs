@@ -440,6 +440,8 @@ namespace DAL.Data.Database.HMISDBContext
                     .HasMaxLength(25)
                     .IsUnicode(false);
 
+                entity.Property(e => e.MRNO).HasMaxLength(50);
+
                 entity.Property(e => e.MartialStatus)
                     .HasMaxLength(50)
                     .IsUnicode(false);
