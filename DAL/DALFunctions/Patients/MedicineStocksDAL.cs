@@ -28,8 +28,8 @@ namespace DAL.DALFunctions.Patients
                 try
                 {
                     var CurrentDate = DateTime.Now;
-                    var Stock = this._mapper.Map<tbl_stock>(model);
-                    db.tbl_stocks.AddAsync(Stock);
+                    var Stock = this._mapper.Map<tbl_final_stock>(model);
+                    db.tbl_final_stocks.AddAsync(Stock);
                     db.SaveChanges();
                     Result = 1;
                 }

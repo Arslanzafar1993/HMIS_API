@@ -16,6 +16,7 @@ namespace Models.Patient
         public string MRNO { get; set; }
         public string GuardianRelation { get; set; }
         public string Mobile { get; set; }
+        public string PatientType { get; set; }
         public string HealthFacility { get; set; }
         public int? Age { get; set; }
     }

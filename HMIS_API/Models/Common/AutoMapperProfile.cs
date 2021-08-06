@@ -28,7 +28,7 @@ namespace HMIS_API.Models.Common
             CreateMap<PatientRegistrationDTO, tbl_PatientRegistration>();
             CreateMap<PatientVitalsDTO, tbl_patient_vital>();
 
-            CreateMap<MedicineStocksDTO, tbl_stock>();
+            CreateMap<MedicineStocksDTO, tbl_final_stock>();
             CreateMap<PatientAssessmentDTO, tbl_patient_assessment>();
             CreateMap<PatientFollowupsDTO, tbl_patient_vital>();
             CreateMap<PatientSamplingDTO, tbl_sample>();

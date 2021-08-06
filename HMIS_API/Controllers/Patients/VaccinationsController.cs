@@ -27,8 +27,8 @@ namespace HMIS_API.Controllers.Patients
         #endregion
         #region AddVaccination
         [HttpPost]
-        [Route("AddVaccination")]
-        public IActionResult AddVaccination([FromBody] PatientVaccinationDTO model)
+        [Route("AddPatientVaccination")]
+        public IActionResult AddPatientVaccination([FromBody] PatientVaccinationDTO model)
         {
             try
             {
