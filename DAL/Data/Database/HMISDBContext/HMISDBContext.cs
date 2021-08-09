@@ -40,6 +40,7 @@ namespace DAL.Data.Database.HMISDBContext
         public virtual DbSet<tbl_bp_normalization> tbl_bp_normalizations { get; set; }
         public virtual DbSet<tbl_callcenter> tbl_callcenters { get; set; }
         public virtual DbSet<tbl_callcenter_stat> tbl_callcenter_stats { get; set; }
+        public virtual DbSet<tbl_cbc_parameter> tbl_cbc_parameters { get; set; }
         public virtual DbSet<tbl_dispatch> tbl_dispatches { get; set; }
         public virtual DbSet<tbl_drug_interaction_med_sec> tbl_drug_interaction_med_secs { get; set; }
         public virtual DbSet<tbl_event> tbl_events { get; set; }
@@ -696,6 +697,38 @@ namespace DAL.Data.Database.HMISDBContext
                 entity.Property(e => e.UpdateOn).HasColumnType("datetime");
             });
 
+            modelBuilder.Entity<tbl_cbc_parameter>(entity =>
+            {
+                entity.ToTable("tbl_cbc_parameter");
+
+                entity.Property(e => e.apri)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.baseline_type)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('HBV')");
+
+                entity.Property(e => e.follow_up_no).HasDefaultValueSql("('0')");
+
+                entity.Property(e => e.lab_name)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.other_lab_name)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.pcr_result)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.result_type)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<tbl_dispatch>(entity =>
             {
                 entity.ToTable("tbl_dispatch");
@@ -882,6 +915,12 @@ namespace DAL.Data.Database.HMISDBContext
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
+
+                entity.Property(e => e.pcr_confirmation_hbv).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.pcr_confirmation_hcv).HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.previous_hbv_test).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.updated).HasPrecision(0);
             });

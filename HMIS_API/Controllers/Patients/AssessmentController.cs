@@ -40,5 +40,19 @@ namespace HMIS_API.Controllers.Patients
             catch (Exception ex) { return Ok(CommonUtility.GetExResponse<Exception>(ex)); }
         }
         #endregion
+        #region AddFamilyAssessment
+        [HttpPost]
+        [Route("AddFamilyAssessment")]
+        public IActionResult AddFamilyAssessment([FromBody] List<PatientFamilyAssessmentDTO> model)
+        {
+            try
+            {
+               // model.CreatedOn = CommonUtility.GetCurrentDate();
+                int Result = _patientservices.AddFamilyAssessment(model);
+                return Ok(Result);
+            }
+            catch (Exception ex) { return Ok(CommonUtility.GetExResponse<Exception>(ex)); }
+        }
+        #endregion
     }
 }

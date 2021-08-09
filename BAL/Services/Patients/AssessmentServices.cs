@@ -27,5 +27,11 @@ namespace BAL.Services
             return _DAL.AddAssessment(model);
         }
         #endregion
+        #region AddFamilyAssessment
+        public int AddFamilyAssessment(List<PatientFamilyAssessmentDTO> model)
+        {
+            return _DAL.AddFamilyAssessment(model);
+        }
+        #endregion
     }
 }

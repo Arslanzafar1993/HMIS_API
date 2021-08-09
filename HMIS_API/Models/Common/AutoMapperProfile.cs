@@ -30,6 +30,7 @@ namespace HMIS_API.Models.Common
 
             CreateMap<MedicineStocksDTO, tbl_final_stock>();
             CreateMap<PatientAssessmentDTO, tbl_patient_assessment>();
+            CreateMap<PatientFamilyAssessmentDTO, tbl_family_assesment>();
             CreateMap<PatientFollowupsDTO, tbl_patient_vital>();
             CreateMap<PatientSamplingDTO, tbl_sample>();
             CreateMap<PatientVaccinationDTO, tbl_patientvaccination>();
