@@ -13,14 +13,14 @@ namespace HMIS_API.Controllers.Patients
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AssessmentController : ControllerBase
+    public class PatientAssessmentController : ControllerBase
     {
         #region Class Level Fields And Objects 
 
         private AssessmentServices _patientservices;
         #endregion
         #region Constructor
-        public AssessmentController(IMapper mapper)
+        public PatientAssessmentController(IMapper mapper)
         {
             _patientservices = new AssessmentServices(mapper);
         }

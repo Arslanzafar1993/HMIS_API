@@ -34,6 +34,12 @@ namespace HMIS_API.Models.Common
             CreateMap<PatientFollowupsDTO, tbl_patient_vital>();
             CreateMap<PatientSamplingDTO, tbl_sample>();
             CreateMap<PatientVaccinationDTO, tbl_patientvaccination>();
+
+            CreateMap<MedicineDisburementDTO, tbl_drug_interaction_med_sec>();
+            CreateMap<MedicineDisburementDTO, tbl_cbc_parameter>().ForMember(destination => destination.pid,
+                options => options.MapFrom(source => source.PatientID));
+            CreateMap<MedicineDisburementDTO, tbl_renal_function>().ForMember(destination => destination.pid,
+                options => options.MapFrom(source => source.PatientID));
         }
     }
 }

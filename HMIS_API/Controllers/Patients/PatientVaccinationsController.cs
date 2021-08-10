@@ -13,28 +13,27 @@ namespace HMIS_API.Controllers.Patients
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FollowupsController : ControllerBase
+    public class PatientVaccinationsController : ControllerBase
     {
         #region Class Level Fields And Objects 
 
-        private FollowupsServices _patientservices;
+        private VaccinationsServices _patientservices;
         #endregion
         #region Constructor
-        public FollowupsController(IMapper mapper)
+        public PatientVaccinationsController(IMapper mapper)
         {
-            _patientservices = new FollowupsServices(mapper);
+            _patientservices = new VaccinationsServices(mapper);
         }
-
         #endregion
-        #region AddPatientFollowup
+        #region AddVaccination
         [HttpPost]
-        [Route("AddPatientFollowup")]
-        public IActionResult AddPatientFollowup([FromBody] PatientFollowupsDTO model)
+        [Route("AddPatientVaccination")]
+        public IActionResult AddPatientVaccination([FromBody] PatientVaccinationDTO model)
         {
             try
             {
-               // model.CreatedOn = CommonUtility.GetCurrentDate();
-                int Result = _patientservices.AddFollowUp(model);
+                model.CreatedOn = CommonUtility.GetCurrentDate();
+                int Result = _patientservices.AddVaccination(model);
                 return Ok(Result);
             }
             catch (Exception ex) { return Ok(CommonUtility.GetExResponse<Exception>(ex)); }

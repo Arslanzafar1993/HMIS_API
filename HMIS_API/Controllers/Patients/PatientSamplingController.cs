@@ -13,27 +13,28 @@ namespace HMIS_API.Controllers.Patients
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VaccinationsController : ControllerBase
+    public class PatientSamplingController : ControllerBase
     {
         #region Class Level Fields And Objects 
 
-        private VaccinationsServices _patientservices;
+        private SamplingServices _patientservices;
         #endregion
         #region Constructor
-        public VaccinationsController(IMapper mapper)
+        public PatientSamplingController(IMapper mapper)
         {
-            _patientservices = new VaccinationsServices(mapper);
+            _patientservices = new SamplingServices(mapper);
         }
+
         #endregion
-        #region AddVaccination
+        #region AddPatientSample
         [HttpPost]
-        [Route("AddPatientVaccination")]
-        public IActionResult AddPatientVaccination([FromBody] PatientVaccinationDTO model)
+        [Route("AddPatientSample")]
+        public IActionResult AddPatientSample ([FromBody] PatientSamplingDTO model)
         {
             try
             {
                 model.CreatedOn = CommonUtility.GetCurrentDate();
-                int Result = _patientservices.AddVaccination(model);
+                int Result = _patientservices.AddSample(model);
                 return Ok(Result);
             }
             catch (Exception ex) { return Ok(CommonUtility.GetExResponse<Exception>(ex)); }
