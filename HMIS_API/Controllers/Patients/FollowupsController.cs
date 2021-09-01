@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using BAL.Services.Patients;
+using BAL.Services;
 using HMIS_API.Models.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,40 +13,40 @@ namespace HMIS_API.Controllers.Patients
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PatientMedicineDisbursementController : ControllerBase
+    public class FollowupsController : ControllerBase
     {
         #region Class Level Fields And Objects 
 
-        private MedicineDisbursementServices _patientservices;
+        private FollowupsServices _patientservices;
         #endregion
         #region Constructor
-        public PatientMedicineDisbursementController(IMapper mapper)
+        public FollowupsController(IMapper mapper)
         {
-            _patientservices = new MedicineDisbursementServices(mapper);
+            _patientservices = new FollowupsServices(mapper);
         }
 
         #endregion
-        #region AddPatientMedicineDisbursement
+        #region AddPatientFollowup
         [HttpPost]
-        [Route("AddHCVMedicineDisbursement")]
-        public IActionResult AddHCVMedicineDisbursement([FromBody] MedicineDisburementDTO model)
+        [Route("AddPatientFollowup")]
+        public IActionResult AddPatientFollowup([FromBody] PatientFollowupsDTO model)
         {
             try
             {
                // model.CreatedOn = CommonUtility.GetCurrentDate();
-                int Result = _patientservices.AddPatientMedicineDisbursement(model);
+                int Result = _patientservices.AddFollowUp(model);
                 return Ok(Result);
             }
             catch (Exception ex) { return Ok(CommonUtility.GetExResponse<Exception>(ex)); }
         }
-        [HttpPost]
-        [Route("AddHBVMedicineDisbursement")]
-        public IActionResult AddHBVMedicineDisbursement([FromBody] MedicineDisburementDTO model)
+        [HttpGet]
+        [Route("AddPatientFollowup")]
+        public IActionResult GetPatientFollowup(string SearchValue ,string Type)
         {
             try
             {
                 // model.CreatedOn = CommonUtility.GetCurrentDate();
-                int Result = _patientservices.AddPatientMedicineDisbursement(model);
+                int Result = -1;//_patientservices.GetPatientFollowup(SearchValue,Type);
                 return Ok(Result);
             }
             catch (Exception ex) { return Ok(CommonUtility.GetExResponse<Exception>(ex)); }

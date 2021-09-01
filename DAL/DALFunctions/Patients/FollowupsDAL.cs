@@ -28,8 +28,8 @@ namespace DAL.DALFunctions.Patients
                 try
                 {
                     var CurrentDate = DateTime.Now;
-                    var PatientVital = this._mapper.Map<tbl_patient_vital>(model);
-                    db.tbl_patient_vitals.AddAsync(PatientVital);
+                    var PatientVital = this._mapper.Map<tbl_drug_interaction_med_sec>(model);
+                    db.tbl_drug_interaction_med_secs.AddAsync(PatientVital);
                     db.SaveChanges();
                     Result = 1;
                 }

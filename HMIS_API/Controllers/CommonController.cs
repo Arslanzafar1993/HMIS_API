@@ -141,5 +141,20 @@ namespace HMIS_API.Controllers
             }
         }
         #endregion
+        #region GetLostOfFollowupReasonList
+        [HttpGet]
+        [Route("GetLostOfFollowupReasonList")]
+        public IActionResult GetLostOfFollowupReasonList()
+        {
+            try
+            {
+                return Ok(CommonUtility.GetResponse<List<DDLModel>>(_commonServices.GetLostOfFollowupReasonList()));
+            }
+            catch (Exception ex)
+            {
+                return Ok(CommonUtility.GetExResponse<Exception>(ex));
+            }
+        }
+        #endregion
     }
 }

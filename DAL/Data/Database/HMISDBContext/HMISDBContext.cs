@@ -57,6 +57,7 @@ namespace DAL.Data.Database.HMISDBContext
         public virtual DbSet<tbl_lab_result> tbl_lab_results { get; set; }
         public virtual DbSet<tbl_lab_sample> tbl_lab_samples { get; set; }
         public virtual DbSet<tbl_labortary> tbl_labortaries { get; set; }
+        public virtual DbSet<tbl_lost_followup_reason> tbl_lost_followup_reasons { get; set; }
         public virtual DbSet<tbl_marital_status> tbl_marital_statuses { get; set; }
         public virtual DbSet<tbl_med_delivery_log> tbl_med_delivery_logs { get; set; }
         public virtual DbSet<tbl_medicine_disbursement_old_regime> tbl_medicine_disbursement_old_regimes { get; set; }
@@ -1142,6 +1143,16 @@ namespace DAL.Data.Database.HMISDBContext
                 entity.Property(e => e.UpdateBy).HasMaxLength(500);
 
                 entity.Property(e => e.UpdateOn).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<tbl_lost_followup_reason>(entity =>
+            {
+                entity.Property(e => e.Reason)
+                    .IsRequired()
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.created).HasPrecision(0);
             });
 
             modelBuilder.Entity<tbl_marital_status>(entity =>

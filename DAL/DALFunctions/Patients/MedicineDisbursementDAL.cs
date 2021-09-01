@@ -38,6 +38,7 @@ namespace DAL.DALFunctions.Patients
                     db.tbl_renal_functions.AddAsync(Renalfunctions);
 
                     db.SaveChanges();
+                    trans.Commit();
                     Result = 1;
                 }
                 catch (Exception ex)

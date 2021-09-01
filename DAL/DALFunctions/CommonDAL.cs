@@ -129,7 +129,21 @@ namespace DAL
                 throw ex;
             }
         }
+        public List<DDLModel> GetLostOfFollowupReasonList()
+        {
+            try
+            {
+                using (var db = new HMISDBContext())
+                {
+                    return db.tbl_lost_followup_reasons.Select(x => new DDLModel { Id = x.Id, Name = x.Reason }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
 
         public List<DDLModel> GetOccupationList ()
         {

@@ -139,6 +139,17 @@ namespace BAL.Services
             }
         }
 
+        public List<DDLModel> GetLostOfFollowupReasonList()
+        {
+            try
+            {
+                return _commonDAL.GetLostOfFollowupReasonList();
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
     }
 }
